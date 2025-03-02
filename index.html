@@ -1,93 +1,142 @@
 <!DOCTYPE html>
-<html><head>
-    <link rel="stylesheet" href="styles.css">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Satisfaction Survey Form</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="container">
-      <header class="header">
-        <h1 id="title" class="text-center">freeCodeCamp Survey Form</h1>
-        <p id="description" class="description text-center">
-          Thank you for taking the time to help us improve the platform
-        </p>
-      </header>
-      <form id="survey-form">
-        <div class="form-group">
-          <label id="name-label" for="name">Name</label>
-          <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name" required="">
-        </div>
-        <div class="form-group">
-          <label id="email-label" for="email">Email</label>
-          <input type="email" name="email" id="email" class="form-control" placeholder="Enter your Email" required="">
-        </div>
-        <div class="form-group">
-          <label id="number-label" for="number">Age<span class="clue">(optional)</span></label>
-          <input type="number" name="age" id="number" min="10" max="99" class="form-control" placeholder="Age">
-        </div>
-        <div class="form-group">
-          <p>Which option best describes your current role?</p>
-          <select id="dropdown" name="role" class="form-control" required="">
-            <option disabled="" selected="" value="">Select current role</option>
-            <option value="student">Student</option>
-            <option value="job">Full Time Job</option>
-            <option value="learner">Full Time Learner</option>
-            <option value="preferNo">Prefer not to say</option>
-            <option value="other">Other</option>
+    <h1 id="title">Membership Satisfaction Survey Form</h1>
+    <p id="description">
+      <i>We appreciate your participation in our industry. Please take the survey & leave a remark below to help with future improvement.</i>
+    </p>
+    <form id="survey-form" action="/submit-form" method="POST">
+      <fieldset>
+        <label id="name-label">
+          <span>Name</span>
+          <input id="name" type="text" name="name" required placeholder="Enter your name" />
+        </label>
+
+        <label for="address">
+          <span>Address</span>
+          <input id="address" type="text" name="address" required placeholder="Street address" />
+        </label>
+
+        <label for="city">
+          <span>City</span>
+          <input id="city" type="text" name="city" placeholder="City" required />
+        </label>
+
+        <label for="region">
+          <span>Region</span>
+          <input id="region" type="text" name="region" placeholder="Region (optional)" />
+        </label>
+
+        <label for="country">
+          <span>Country</span>
+          <input id="country" type="text" name="country" required placeholder="Country" />
+        </label>
+
+        <label for="zip-number">
+          <span>Postal / Zip Code</span>
+          <input id="zip-number" type="text" name="postal-code" required placeholder="Postal / Zip code" />
+        </label>
+
+        <label for="id-number">
+          <span>Identification Number</span>
+          <input id="id-number" name="id-number" type="text" required placeholder="Enter your ID No" />
+        </label>
+
+        <label id="email-label">
+          <span>Email</span>
+          <input id="email" type="email" name="email" required placeholder="Enter your Email" />
+        </label>
+
+        <label id="number-label">
+          <span>How many accounts do you have with us?</span>
+          <input id="number" name="number" type="number" required min="1" max="5" placeholder="Select" />
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <label for="dropdown">
+          <span>How long have you been a member of X company?</span>
+          <select id="dropdown" name="years">
+            <option value="">(select one)</option>
+            <option value="1">Less than one year</option>
+            <option value="2">1-5 years</option>
+            <option value="3">6-10 years</option>
+            <option value="4">11-19 years</option>
+            <option value="5">20+ years</option>
           </select>
-        </div>
+        </label>
+      </fieldset>
 
-        <div class="form-group">
-          <p>Would you recommend freeCodeCamp to a friend?</p>
-          <label>
-            <input name="user-recommend" value="definitely" type="radio" class="input-radio" checked="">Definitely</label>
-          <label>
-            <input name="user-recommend" value="maybe" type="radio" class="input-radio">Maybe</label>
+      <fieldset>
+        <legend>How would you rate your experience with us?</legend>
+        <label for="very-satisfied">
+          <input id="very-satisfied" value="survey-1" type="radio" name="satisfied" class="inline" />
+          Very Satisfied
+        </label>
+        <label for="satisfied">
+          <input id="satisfied" value="survey-2" type="radio" name="satisfied" class="inline" />
+          Satisfied
+        </label>
+        <label for="ok">
+          <input id="ok" value="survey-3" type="radio" name="satisfied" class="inline" />
+          OK
+        </label>
+        <label for="dissatisfied">
+          <input id="dissatisfied" value="survey-4" type="radio" name="not-satisfied" class="inline" />
+          Dissatisfied
+        </label>
+        <label for="very-dissatisfied">
+          <input id="very-dissatisfied" value="survey-5" type="radio" name="not-satisfied" class="inline" />
+          Very Dissatisfied
+        </label>
+      </fieldset>
 
-          <label><input name="user-recommend" value="not-sure" type="radio" class="input-radio">Not sure</label>
-        </div>
+      <fieldset>
+        <legend>What would you like to see improved? (Check all that apply)</legend>
+        <label for="cleanliness">
+          <input id="cleanliness" class="inline" type="checkbox" name="cleanliness" value="cleanliness" /> Cleanliness
+        </label>
+        <label for="speed-of-service">
+          <input id="speed-of-service" class="inline" type="checkbox" name="speed-of-service" value="speed-of-service" /> Speed of service
+        </label>
+        <label for="transparency">
+          <input id="transparency" class="inline" type="checkbox" name="transparency" value="transparency" /> Transparency
+        </label>
+        <label for="quality-of-food">
+          <input id="quality-of-food" class="inline" type="checkbox" name="quality" value="quality-of-food" /> Quality of food
+        </label>
+        <label for="working-hour">
+          <input id="working-hour" class="inline" type="checkbox" name="working-hour" value="working-hour" /> Working hour
+        </label>
+        <label for="packaging">
+          <input id="packaging" class="inline" type="checkbox" name="packaging" value="product-packing" /> Product packaging
+        </label>
+      </fieldset>
 
-        <div class="form-group">
-          <p>What is your favorite feature of freeCodeCamp?</p>
-          <select id="most-like" name="mostLike" class="form-control" required="">
-            <option disabled="" selected="" value="">Select an option</option>
-            <option value="challenges">Challenges</option>
-            <option value="projects">Projects</option>
-            <option value="community">Community</option>
-            <option value="openSource">Open Source</option>
-          </select>
-        </div>
+      <fieldset>
+        <label for="comments">
+          <span>Any comments or suggestions?</span>
+          <textarea id="comments" name="comments" rows="5" cols="45" placeholder="Type your comments here..."></textarea>
+        </label>
+      </fieldset>
 
-        <div class="form-group">
-          <p>
-            What would you like to see improved?
-            <span class="clue">(Check all that apply)</span>
-          </p>
+      <fieldset>
+        <label for="privacy-policy">
+          <input class="inline" id="privacy-policy" type="checkbox" value="privacy-policy" name="privacy-policy" required />
+          I agree to the <a href="https://www.freecodecamp.org/news/privacy-policy/">Privacy Policy</a>
+        </label>
+      </fieldset>
 
-          <label><input name="prefer" value="front-end-projects" type="checkbox" class="input-checkbox">Front-end Projects</label>
-          <label>
-            <input name="prefer" value="back-end-projects" type="checkbox" class="input-checkbox">Back-end Projects</label>
-          <label><input name="prefer" value="data-visualization" type="checkbox" class="input-checkbox">Data Visualization</label>
-          <label><input name="prefer" value="challenges" type="checkbox" class="input-checkbox">Challenges</label>
-          <label><input name="prefer" value="open-source-community" type="checkbox" class="input-checkbox">Open Source Community</label>
-          <label><input name="prefer" value="gitter-help-rooms" type="checkbox" class="input-checkbox">Gitter help rooms</label>
-          <label><input name="prefer" value="videos" type="checkbox" class="input-checkbox">Videos</label>
-          <label><input name="prefer" value="city-meetups" type="checkbox" class="input-checkbox">City Meetups</label>
-          <label><input name="prefer" value="wiki" type="checkbox" class="input-checkbox">Wiki</label>
-          <label><input name="prefer" value="forum" type="checkbox" class="input-checkbox">Forum</label>
-          <label><input name="prefer" value="additional-courses" type="checkbox" class="input-checkbox">Additional Courses</label>
-        </div>
-
-        <div class="form-group">
-          <p>Any comments or suggestions?</p>
-          <textarea id="comments" class="input-textarea" name="comment" placeholder="Enter your comment here..."></textarea>
-        </div>
-
-        <div class="form-group">
-          <button type="submit" id="submit" class="submit-button">
-            Submit
-          </button>
-        </div>
-      </form>
-    </div>
-  
-
-</body></html>
+      <input id="submit" type="submit" value="Submit" />
+    </form>
+    <footer>
+      <small>&copy; 2025 FreeCodeCamp Certification Project, All rights reserved.</small>
+    </footer>
+  </body>
+</html>
